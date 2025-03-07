@@ -278,7 +278,7 @@ done:
  * Get a password entry by name and allocate space for it.
  */
 struct passwd *
-sudo_getpwnam(const char *name)
+sudo_getpwnam(const char * restrict name)
 {
     struct cache_item key, *item;
     struct rbnode *node;
@@ -350,8 +350,8 @@ done:
  * If home or shell are NULL default values will be used.
  */
 struct passwd *
-sudo_mkpwent(const char *user, uid_t uid, gid_t gid, const char *home,
-    const char *shell)
+sudo_mkpwent(const char * restrict user, uid_t uid, gid_t gid, const char * restrict home,
+    const char * restrict shell)
 {
     struct cache_item_pw *pwitem;
     struct cache_item *item;
@@ -450,7 +450,7 @@ sudo_mkpwent(const char *user, uid_t uid, gid_t gid, const char *home,
  * Take a uid in string form "#123" and return a faked up passwd struct.
  */
 struct passwd *
-sudo_fakepwnam(const char *user, gid_t gid)
+sudo_fakepwnam(const char * restrict user, gid_t gid)
 {
     const char *errstr;
     uid_t uid;
@@ -595,7 +595,7 @@ done:
  * Get a group entry by name and allocate space for it.
  */
 struct group *
-sudo_getgrnam(const char *name)
+sudo_getgrnam(const char * restrict name)
 {
     struct cache_item key, *item;
     struct rbnode *node;
@@ -660,7 +660,7 @@ done:
  * Take a group name, ID, members and return a faked up group struct.
  */
 struct group *
-sudo_mkgrent(const char *group, gid_t gid, ...)
+sudo_mkgrent(const char * restrict group, gid_t gid, ...)
 {
     struct cache_item_gr *gritem;
     struct cache_item *item;
@@ -764,7 +764,7 @@ sudo_mkgrent(const char *group, gid_t gid, ...)
  * Take a gid in string form "#123" and return a faked up group struct.
  */
 struct group *
-sudo_fakegrnam(const char *group)
+sudo_fakegrnam(const char * restrict group)
 {
     const char *errstr;
     gid_t gid;
@@ -1116,7 +1116,7 @@ sudo_set_gidlist(struct passwd *pw, int ngids, GETGROUPS_T *gids,
 }
 
 bool
-user_in_group(const struct passwd *pw, const char *group)
+user_in_group(const struct passwd *pw, const char * restrict group)
 {
     struct group_list *grlist = NULL;
     struct gid_list *gidlist = NULL;

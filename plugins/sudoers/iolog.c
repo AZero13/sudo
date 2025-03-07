@@ -82,7 +82,7 @@ extern sudo_dso_public struct io_plugin sudoers_io;
  * Sudoers callback for maxseq Defaults setting.
  */
 bool
-cb_maxseq(struct sudoers_context *ctx, const char *file,
+cb_maxseq(struct sudoers_context *ctx, const char * restrict file,
     int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     const char *errstr;
@@ -107,7 +107,7 @@ cb_maxseq(struct sudoers_context *ctx, const char *file,
  * Sudoers callback for iolog_user Defaults setting.
  */
 bool
-cb_iolog_user(struct sudoers_context *ctx, const char *file,
+cb_iolog_user(struct sudoers_context *ctx, const char * restrict file,
     int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     const char *name = sd_un->str;
@@ -133,7 +133,7 @@ cb_iolog_user(struct sudoers_context *ctx, const char *file,
  * Look up I/O log group-ID from group name.
  */
 bool
-cb_iolog_group(struct sudoers_context *ctx, const char *file,
+cb_iolog_group(struct sudoers_context *ctx, const char * restrict file,
     int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     const char *name = sd_un->str;
@@ -159,7 +159,7 @@ cb_iolog_group(struct sudoers_context *ctx, const char *file,
  * Sudoers callback for iolog_mode Defaults setting.
  */
 bool
-cb_iolog_mode(struct sudoers_context *ctx, const char *file,
+cb_iolog_mode(struct sudoers_context *ctx, const char * restrict file,
     int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     iolog_set_mode(sd_un->mode);

@@ -128,7 +128,7 @@ init_log_details(struct log_details *details, struct eventlog *evlog)
 
 bool
 log_server_reject(const struct sudoers_context *ctx, struct eventlog *evlog,
-    const char *message)
+    const char * restrict message)
 {
     bool ret = false;
     debug_decl(log_server_reject, SUDOERS_DEBUG_LOGGING);
@@ -175,7 +175,7 @@ done:
 
 bool
 log_server_alert(const struct sudoers_context *ctx, struct eventlog *evlog,
-    const char *message, const char *errstr)
+    const char * restrict message, const char * restrict errstr)
 {
     struct log_details details;
     char *emessage = NULL;
@@ -232,14 +232,14 @@ done:
 #else
 bool
 log_server_reject(const struct sudoers_context *ctx, struct eventlog *evlog,
-    const char *message)
+    const char * restrict message)
 {
     return true;
 }
 
 bool
 log_server_alert(const struct sudoers_context *ctx, struct eventlog *evlog,
-    const char *message, const char *errstr)
+    const char * restrict message, const char * restrict errstr)
 {
     return true;
 }

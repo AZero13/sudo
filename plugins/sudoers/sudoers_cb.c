@@ -401,7 +401,7 @@ cb_intercept_allow_setid(struct sudoers_context *ctx, const char *file,
 }
 
 bool
-cb_log_input(struct sudoers_context *ctx, const char *file,
+cb_log_input(struct sudoers_context *ctx, const char * restrict file,
     int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     debug_decl(cb_log_input, SUDOERS_DEBUG_PLUGIN);
@@ -413,7 +413,7 @@ cb_log_input(struct sudoers_context *ctx, const char *file,
 }
 
 bool
-cb_log_output(struct sudoers_context *ctx, const char *file,
+cb_log_output(struct sudoers_context *ctx, const char * restrict file,
     int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     debug_decl(cb_log_output, SUDOERS_DEBUG_PLUGIN);

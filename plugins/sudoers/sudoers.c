@@ -1487,8 +1487,8 @@ set_runasgr(struct sudoers_context *ctx, const char *group, bool quiet)
  * Callback for runas_default sudoers setting.
  */
 bool
-cb_runas_default(struct sudoers_context *ctx, const char *file, int line,
-    int column, const union sudo_defs_val *sd_un, int op)
+cb_runas_default(struct sudoers_context *ctx, const char * restrict file,
+    int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     debug_decl(cb_runas_default, SUDOERS_DEBUG_PLUGIN);
 

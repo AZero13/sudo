@@ -299,7 +299,7 @@ group_plugin_query(const char *user, const char *group,
  * Group plugin sudoers callback.
  */
 bool
-cb_group_plugin(struct sudoers_context *ctx, const char *file,
+cb_group_plugin(struct sudoers_context *ctx, const char * restrict file,
     int line, int column, const union sudo_defs_val *sd_un, int op)
 {
     bool rc = true;
