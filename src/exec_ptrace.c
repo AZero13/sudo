@@ -352,7 +352,7 @@ ptrace_setregs(int pid, struct sudo_ptrace_regs *regs)
  * Returns the number of bytes stored, including the NUL.
  */
 static ssize_t
-ptrace_readv_string(pid_t pid, unsigned long addr, char *buf, size_t bufsize)
+ptrace_readv_string(pid_t pid, unsigned long addr, char *restrict buf, size_t bufsize)
 {
     const char *cp, *buf0 = buf;
     struct iovec local, remote;
@@ -413,7 +413,7 @@ ptrace_readv_string(pid_t pid, unsigned long addr, char *buf, size_t bufsize)
  * Returns the number of bytes stored, including the NUL.
  */
 static ssize_t
-ptrace_read_string(pid_t pid, unsigned long addr, char *buf, size_t bufsize)
+ptrace_read_string(pid_t pid, unsigned long addr, char *restrict buf, size_t bufsize)
 {
     const char *cp, *buf0 = buf;
     unsigned long word;
@@ -640,7 +640,7 @@ ptrace_read_vec(pid_t pid, struct sudo_ptrace_regs *regs, unsigned long addr,
  * Returns the number of bytes written, including trailing NUL.
  */
 static ssize_t
-ptrace_writev_string(pid_t pid, unsigned long addr, const char *str0)
+ptrace_writev_string(pid_t pid, unsigned long addr, const char *restrict str0)
 {
     const char *str = str0;
     size_t len = strlen(str) + 1;
@@ -694,7 +694,7 @@ ptrace_writev_string(pid_t pid, unsigned long addr, const char *str0)
  * Returns the number of bytes written, including trailing NUL.
  */
 static ssize_t
-ptrace_write_string(pid_t pid, unsigned long addr, const char *str)
+ptrace_write_string(pid_t pid, unsigned long addr, const char *restrict str)
 {
     const char *str0 = str;
     size_t i;
@@ -946,7 +946,7 @@ ptrace_write_vec(pid_t pid, struct sudo_ptrace_regs *regs, char **vec,
  * Returns true on success, else false.
  */
 static bool
-proc_read_link(pid_t pid, const char *name, char *buf, size_t bufsize)
+proc_read_link(pid_t pid, const char *restrict name, char *restrict buf, size_t bufsize)
 {
     ssize_t len;
     char path[PATH_MAX];

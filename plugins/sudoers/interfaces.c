@@ -48,7 +48,7 @@ static struct interface_list interfaces = SLIST_HEAD_INITIALIZER(interfaces);
  * success and false on parse error or memory allocation error.
  */
 bool
-set_interfaces(const char *ai)
+set_interfaces(const char * restrict ai)
 {
     char *addrinfo, *addr, *mask, *last;
     struct interface *ifp;
@@ -116,7 +116,7 @@ get_interfaces(void)
 }
 
 void
-dump_interfaces(const char *ai)
+dump_interfaces(const char * restrict ai)
 {
     const char *cp, *ep;
     const char *ai_end = ai + strlen(ai);
