@@ -50,8 +50,8 @@ SLIST_HEAD(interface_list, interface);
  * Prototypes for external functions.
  */
 int get_net_ifs(char **addrinfo);
-void dump_interfaces(const char *);
-bool set_interfaces(const char *);
+void dump_interfaces(const char * restrict);
+bool set_interfaces(const char * restrict);
 struct interface_list *get_interfaces(void);
 
 #endif /* SUDOERS_INTERFACES_H */
